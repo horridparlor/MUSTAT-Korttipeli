@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/Styles/Gameplay/WinnerLabel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Nexus/VariantShop.gd" type="Script" id=2]
+
+[node name="VariantShop" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -468.5
+margin_top = -300.0
+margin_right = 468.5
+margin_bottom = -135.0
+custom_fonts/font = ExtResource( 1 )
+text = "Coming soon"

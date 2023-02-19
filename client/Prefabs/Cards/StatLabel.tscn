@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/Styles/Cards/Stat.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Cards/StatLabel.gd" type="Script" id=2]
+
+[node name="Label" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -45.0
+margin_right = 45.0
+margin_bottom = 45.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 2 )

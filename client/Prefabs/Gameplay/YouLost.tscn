@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Styles/Gameplay/WinnerLabel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Gameplay/YouLostFrame.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scripts/Gameplay/EndMessage.gd" type="Script" id=3]
+[ext_resource path="res://Prefabs/Gameplay/EndMessageLogOut.tscn" type="PackedScene" id=4]
+
+[node name="YouLost" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="LogOut" parent="." instance=ExtResource( 4 )]
+
+[node name="Frame" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.8 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -300.0
+margin_right = 400.0
+margin_bottom = 300.0
+custom_styles/panel = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.5
+margin_top = -82.5
+margin_right = 316.5
+margin_bottom = 82.5
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "You lost!"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="LogOut" to="." method="_on_LogOut_pressed"]

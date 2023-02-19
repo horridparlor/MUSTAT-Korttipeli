@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Nexus/GameCenter.gd" type="Script" id=1]
+[ext_resource path="res://UI/Nexus/GameCenter/PlayButtonFrame.tres" type="StyleBox" id=2]
+[ext_resource path="res://Fonts/Styles/Login/PlayButton.tres" type="DynamicFont" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 150 )
+
+[node name="GameCenter" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="PlayButton" type="Node2D" parent="."]
+position = Vector2( 0, 400 )
+
+[node name="Frame" type="Panel" parent="PlayButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+custom_styles/panel = ExtResource( 2 )
+
+[node name="EnterGame" type="TouchScreenButton" parent="PlayButton"]
+position = Vector2( -300, -150 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="PlayButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -88.5
+margin_right = 225.0
+margin_bottom = 88.5
+custom_fonts/font = ExtResource( 3 )
+text = "Play"
+align = 1
+
+[connection signal="pressed" from="PlayButton/EnterGame" to="." method="_on_EnterGame_pressed"]

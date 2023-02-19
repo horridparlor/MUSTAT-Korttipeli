@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/Cards/HighlighterCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Gameplay/Highlighter.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Data/FreeSans.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 88
+outline_size = 9
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Highlighter" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Shadow" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -960.0
+margin_right = 540.0
+margin_bottom = 960.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="HighlighterCard" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -210 )
+
+[node name="Effects" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = 480.0
+margin_right = 500.0
+margin_bottom = 902.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Effects"
+align = 1
+autowrap = true
+
+[node name="Close" type="TouchScreenButton" parent="."]
+position = Vector2( -810, -1440 )
+scale = Vector2( 81, 144 )
+shape = SubResource( 1 )
+
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]

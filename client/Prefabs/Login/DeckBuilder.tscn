@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Login/DeckBuilder.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Gameplay/Highlighter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/Styles/Login/PlayButton.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.12549, 0.462745, 0.854902, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.552941, 0.858824, 0.917647, 1 )
+corner_radius_top_left = 66
+corner_radius_top_right = 66
+corner_radius_bottom_right = 66
+corner_radius_bottom_left = 66
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="DeckBuilder" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -960.0
+margin_right = 540.0
+margin_bottom = 960.0
+color = Color( 0.117647, 0.74902, 0.85098, 1 )
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="PlayButton" type="Node2D" parent="."]
+position = Vector2( 0, 750 )
+
+[node name="Frame" type="Panel" parent="PlayButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -125.0
+margin_right = 300.0
+margin_bottom = 125.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="PlayButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -88.5
+margin_right = 189.0
+margin_bottom = 88.5
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Play"
+align = 1
+valign = 1
+
+[node name="SubmitDeck" type="TouchScreenButton" parent="PlayButton"]
+position = Vector2( -300, -125 )
+scale = Vector2( 30, 12.5 )
+shape = SubResource( 2 )
+
+[node name="Highlighter" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="pressed" from="PlayButton/SubmitDeck" to="." method="_on_SubmitDeck_pressed"]
