@@ -1,0 +1,332 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "GlowNode",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/Card.gd"
+}, {
+"base": "Node2D",
+"class": "CardAnimations",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/Animations.gd"
+}, {
+"base": "Node2D",
+"class": "CardHolder",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/CardHolder.gd"
+}, {
+"base": "Reference",
+"class": "CardIndicator",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/Indicator.gd"
+}, {
+"base": "Label",
+"class": "CardStatLabel",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/StatLabel.gd"
+}, {
+"base": "CardHolder",
+"class": "Gameplay",
+"language": "GDScript",
+"path": "res://Interfaces/Scenes/Gameplay.gd"
+}, {
+"base": "Node2D",
+"class": "GameplayCancelButton",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/CancelButton.gd"
+}, {
+"base": "Card",
+"class": "GameplayCard",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/GameplayCard.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayDeck",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Deck.gd"
+}, {
+"base": "GlowNode",
+"class": "GameplayEndMessage",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/EndMessage.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayEnemyDeck",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/EnemyDeck.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayEnemyField",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/EnemyField.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayEnemyGrave",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/EnemyGrave.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayEnemyHand",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/EnemyHand.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayField",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Field.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayGrave",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Grave.gd"
+}, {
+"base": "GameplayZone",
+"class": "GameplayHand",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Hand.gd"
+}, {
+"base": "Node2D",
+"class": "GameplayHighlighter",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Highlighter.gd"
+}, {
+"base": "GlowNode",
+"class": "GameplayLogOut",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/LogOut.gd"
+}, {
+"base": "GlowNode",
+"class": "GameplayManaBar",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/ManaBar.gd"
+}, {
+"base": "GlowNode",
+"class": "GameplayTurnPasser",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/TurnPasser.gd"
+}, {
+"base": "Node2D",
+"class": "GameplayWaitingLobby",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/WaitingLobby.gd"
+}, {
+"base": "Node2D",
+"class": "GameplayZone",
+"language": "GDScript",
+"path": "res://Interfaces/Gameplay/Zone.gd"
+}, {
+"base": "Node2D",
+"class": "GlowNode",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/GlowNode.gd"
+}, {
+"base": "Card",
+"class": "HighlighterCard",
+"language": "GDScript",
+"path": "res://Interfaces/Cards/HighlighterCard.gd"
+}, {
+"base": "Node2D",
+"class": "Home",
+"language": "GDScript",
+"path": "res://Interfaces/Scenes/Home.gd"
+}, {
+"base": "Node2D",
+"class": "HomeErrorPage",
+"language": "GDScript",
+"path": "res://Interfaces/Home/ErrorPage.gd"
+}, {
+"base": "Node2D",
+"class": "HomeUpdateLink",
+"language": "GDScript",
+"path": "res://Interfaces/Home/UpdateLink.gd"
+}, {
+"base": "Node2D",
+"class": "Login",
+"language": "GDScript",
+"path": "res://Interfaces/Scenes/Login.gd"
+}, {
+"base": "GlowNode",
+"class": "LoginAccount",
+"language": "GDScript",
+"path": "res://Interfaces/Login/Account.gd"
+}, {
+"base": "CardHolder",
+"class": "LoginDeckBuilder",
+"language": "GDScript",
+"path": "res://Interfaces/Login/DeckBuilder.gd"
+}, {
+"base": "Node2D",
+"class": "Nexus",
+"language": "GDScript",
+"path": "res://Interfaces/Scenes/Nexus.gd"
+}, {
+"base": "Node2D",
+"class": "NexusContentPage",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/ContentPage.gd"
+}, {
+"base": "NexusContentPage",
+"class": "NexusDeckBuilder",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/DeckBuilder.gd"
+}, {
+"base": "Node2D",
+"class": "NexusDeckBuilderCollection",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/DeckBuilder/Collection.gd"
+}, {
+"base": "Node",
+"class": "NexusDeckBuilderDeck",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/DeckBuilder/Deck.gd"
+}, {
+"base": "Node2D",
+"class": "NexusDeckBuilderDeckSlots",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/DeckBuilder/DeckSlots.gd"
+}, {
+"base": "NexusPageButton",
+"class": "NexusDeckBuilderSlot",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/DeckBuilder/Slot.gd"
+}, {
+"base": "NexusContentPage",
+"class": "NexusGameCenter",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/GameCenter.gd"
+}, {
+"base": "GlowNode",
+"class": "NexusPageButton",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/PageButton.gd"
+}, {
+"base": "Node2D",
+"class": "NexusPageLoader",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/PageLoader.gd"
+}, {
+"base": "NexusContentPage",
+"class": "NexusVariantShop",
+"language": "GDScript",
+"path": "res://Interfaces/Nexus/VariantShop.gd"
+}, {
+"base": "HTTPRequest",
+"class": "OneTimeRequest",
+"language": "GDScript",
+"path": "res://Interfaces/Server/OneTimeRequest.gd"
+} ]
+_global_script_class_icons={
+"Card": "",
+"CardAnimations": "",
+"CardHolder": "",
+"CardIndicator": "",
+"CardStatLabel": "",
+"Gameplay": "",
+"GameplayCancelButton": "",
+"GameplayCard": "",
+"GameplayDeck": "",
+"GameplayEndMessage": "",
+"GameplayEnemyDeck": "",
+"GameplayEnemyField": "",
+"GameplayEnemyGrave": "",
+"GameplayEnemyHand": "",
+"GameplayField": "",
+"GameplayGrave": "",
+"GameplayHand": "",
+"GameplayHighlighter": "",
+"GameplayLogOut": "",
+"GameplayManaBar": "",
+"GameplayTurnPasser": "",
+"GameplayWaitingLobby": "",
+"GameplayZone": "",
+"GlowNode": "",
+"HighlighterCard": "",
+"Home": "",
+"HomeErrorPage": "",
+"HomeUpdateLink": "",
+"Login": "",
+"LoginAccount": "",
+"LoginDeckBuilder": "",
+"Nexus": "",
+"NexusContentPage": "",
+"NexusDeckBuilder": "",
+"NexusDeckBuilderCollection": "",
+"NexusDeckBuilderDeck": "",
+"NexusDeckBuilderDeckSlots": "",
+"NexusDeckBuilderSlot": "",
+"NexusGameCenter": "",
+"NexusPageButton": "",
+"NexusPageLoader": "",
+"NexusVariantShop": "",
+"OneTimeRequest": ""
+}
+
+[application]
+
+config/name="Mustat"
+run/main_scene="res://Prefabs/Scenes/Home.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+System="*res://Scripts/System.gd"
+
+[display]
+
+window/size/width=1080
+window/size/height=1920
+window/size/resizable=false
+window/energy_saving/keep_screen_on=false
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+mip=false
+log=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": true,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 0,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

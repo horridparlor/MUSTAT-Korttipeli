@@ -1,0 +1,4 @@
+extends NexusContentPage
+class_name NexusGameCenter
+
+signal enter_game

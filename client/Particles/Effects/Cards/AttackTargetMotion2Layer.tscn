@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Particles/Textures/ShiningArrow.png" type="Texture" id=1]
+[ext_resource path="res://Particles/Effects/Cards/AttackTargetMotion.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.341615, 0.596273, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.858398, 0.0938873, 0.609036, 1, 0.581055, 0.0749016, 0.0749016, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.152174, -77.2727 ), 0.0, 0.0, 0, 0, Vector2( 0.940217, 200 ), -550.211, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 5
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 175.0
+emission_ring_height = 10.0
+emission_ring_axis = Vector3( 1, 0, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 0.5
+orbit_velocity = 3.0
+orbit_velocity_random = 1.0
+radial_accel = 200.0
+radial_accel_curve = SubResource( 5 )
+angle = 90.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+color_ramp = SubResource( 3 )
+hue_variation_random = 0.26
+anim_speed = 1.0
+
+[node name="AttackTargetMotion" type="Particles2D"]
+amount = 40
+explosiveness = 0.25
+visibility_rect = Rect2( -100, -150, 200, 300 )
+local_coords = false
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )
+
+[node name="AttackTargetMotion" parent="." instance=ExtResource( 2 )]

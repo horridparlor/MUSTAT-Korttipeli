@@ -1,0 +1,3 @@
+extends NexusContentPage
+class_name NexusVariantShop
+
